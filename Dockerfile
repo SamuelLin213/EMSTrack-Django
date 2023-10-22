@@ -4,6 +4,9 @@ FROM python:3.7
 # Getting rid of debconf messages
 ARG DEBIAN_FRONTEND=noninteractive
 
+# Update apt-get
+RUN apt-get -y update
+
 # Install dependencies
 RUN set -x && \
     apt-get --allow-releaseinfo-change update -y && \
