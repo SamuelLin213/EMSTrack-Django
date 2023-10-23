@@ -4,12 +4,9 @@ FROM python:3.7
 # Getting rid of debconf messages
 ARG DEBIAN_FRONTEND=noninteractive
 
-# Update apt-get
-RUN apt-get -y update
-
 # Install dependencies
 RUN set -x && \
-    apt-get --allow-releaseinfo-change update -y && \
+    apt-get update -y && \
     apt-get install -y apt-utils && \
     apt-get install -y dumb-init git gettext \
             gdal-bin libgdal-dev python3-gdal \
